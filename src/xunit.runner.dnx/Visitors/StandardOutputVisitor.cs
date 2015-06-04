@@ -65,9 +65,9 @@ namespace Xunit.Runner.Dnx
             {
                 // TODO: Thread-safe way to figure out the default foreground color
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.Error.WriteLine("   {0} [FAIL]", Escape(testFailed.Test.DisplayName));
+                Console.WriteLine("   {0} [FAIL]", Escape(testFailed.Test.DisplayName));
                 Console.ForegroundColor = ConsoleColor.Gray;
-                Console.Error.WriteLine("      {0}", ExceptionUtility.CombineMessages(testFailed).Replace(Environment.NewLine, Environment.NewLine + "      "));
+                Console.WriteLine("      {0}", ExceptionUtility.CombineMessages(testFailed).Replace(Environment.NewLine, Environment.NewLine + "      "));
 
                 WriteStackTrace(ExceptionUtility.CombineStackTraces(testFailed));
             }
@@ -86,9 +86,9 @@ namespace Xunit.Runner.Dnx
             {
                 // TODO: Thread-safe way to figure out the default foreground color
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Error.WriteLine("   {0} [SKIP]", Escape(testSkipped.Test.DisplayName));
+                Console.WriteLine("   {0} [SKIP]", Escape(testSkipped.Test.DisplayName));
                 Console.ForegroundColor = ConsoleColor.Gray;
-                Console.Error.WriteLine("      {0}", Escape(testSkipped.Reason));
+                Console.WriteLine("      {0}", Escape(testSkipped.Reason));
             }
 
             return base.Visit(testSkipped);
